@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let barang= [
+            { nama: "laptop", harga: 1000 },
+            { nama: "smartohone", harga: 500},
+            { nama: "headphone", harga: 200},
+            { nama: "tablet" , harga: 300},
+            { nama: "smartwatch" , harga: 150},
+            { nama: "kamera" , harga: 800},
+            { nama: "printer" , harga: 250},
+            {nama: "monitor" , harga: 400},
+            {nama: "keyboard" , harga: 100},
+            {nama: "mouse" , harga: 50},
+        ];
+        let barangs = barang.map((item) => {
+            return `<h1>${item.nama}</h1>
+                <p>${item.harga}</p>`;
+        });
+        document.write(namabarangs);
+    </script>
+</body>
+</html>

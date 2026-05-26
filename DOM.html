@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <h2>Sisa saldo: Rp. <span id="saldo"> 800,000</span></h2>
+    <div id="containerBarang"></div>
+
+<style>
+    img {
+        width: 250px;
+        height: 250px;
+    } 
+    .box {
+        display:inline-block;
+        box-shadow: 0 0 2px 2px rgba(218, 132, 200, 0.7);
+        border-radius: 15px;
+        margin-left: 47px;
+        margin-top: 20px;
+        background-color: white;
+    }
+    .box img{
+        border-radius: 15px;
+    }
+    .card-body{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+        .btn-grad {
+  background-image: linear-gradient(to right, #ED4264 0%, #FFEDBC 51%, #ED4264 100%);
+}
+
+.btn-grad {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  outline: none;
+  border: none;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+    body {
+        background-color: whitesmoke;
+    }
+    
+    </style>
+    <script>
+
+        let saldo= 800000; 
+
+        const products = [
+            {
+                img:"Dimsum mentai.jpg",
+                name:"dimsum",
+                desc: "dimsum keju mentai",
+                price:28000,
+            },
+            {
+                img:"cake1.jpg",
+                name:"dessert",
+                desc:"dessert stawberry",
+                price:25000,
+            },
+            {
+                img:"cake2.jpg",
+                name:"cake",
+                desc:"cake lotus",
+                price:15000,
+            },
+            {
+                img:"pizza.jpg",
+                name:"pizza",
+                desc:"pizza special",
+                price:50000,
+            },
+            {
+                img:"coffe.jpg",
+                name:"coffe",
+                desc:"coffe janji jiwa",
+                price:15000,
+            },
+            {
+                img:"roti o.jpg",
+                name:"roti o",
+                desc:"roti o",
+                price:12000,
+            },
+            {
+                img:"mixue.jpg",
+                name:"mixue",
+                desc:"mixue",
+                price:16000,
+            },
+            {
+                img:"takoyaki.jpg",
+                name:"takoyaki",
+                desc:"takoyaki cumi pedas",
+                price:30000,
+            },
+            {
+                img:"reddog.jpg",
+                name:"reddog",
+                desc:"reddog",
+                price:48000,
+            },
+            {
+                img:"matcha.jpg",
+                name:"matcha",
+                desc:"drink matcha",
+                price:32000,
+            },
+
+        ]; 
+
+        function beli (harga) {
+            if ((saldo) => harga) {
+                saldo-= harga;
+                document.getElementById("saldo").innerHTML =saldo.toLocaleString();
+
+                alert ("transaksi berhasil");
+            } else {
+                alert("saldo anda tidak cukup");
+            }
+        } 
+
+
+        let produk= products.map((item) => {
+            return` 
+            <div class="box">
+            <img src="${item.img}">
+            <div class="card-body">
+                <h1>${item.name}</h1>
+                <p>${item.desc}</p>
+                <h2 style="color : black ;">Rp.${item.price.toLocaleString("id-ID")}</h2>
+                    <button class="btn-grad" onclick="beli(${item.price})">Beli</button>
+           </div>
+           </div>
+           `;
+        });
+
+        document.write(produk.join(""));
+    </script>
+
+</body>
+</html>
